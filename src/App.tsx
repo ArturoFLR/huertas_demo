@@ -5,7 +5,7 @@ function App() {
     <>
       <h1>Huertos Demo</h1>
     </>
-  )
-}
+  );
+};
 
 export default App
