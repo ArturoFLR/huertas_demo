@@ -1,0 +1,21 @@
+.navLabel {
+
+	.ulLabel {
+		display: flex;
+		column-gap: 2rem;
+
+		.liLabel {
+
+			.navLink {
+				text-decoration: none;
+				color: rgb(89, 130, 99);
+				font-weight: 800;
+				font-size: 1.3rem;
+
+				&:hover {
+					color: rgba(89, 130, 99, 0.576);
+				}
+			}
+		}
+	}
+}
