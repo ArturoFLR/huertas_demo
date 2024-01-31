@@ -1,0 +1,58 @@
+.userBoxMainContainer {
+	display: flex;
+	align-items: center;
+
+	.imgLabel {
+		width: 50px;
+	}
+}
+
+.userNameAndLoginContainer {
+	width: 150px;
+	padding-left: 0.5rem;
+	font-weight: 800;
+
+
+	.welcomeText {
+		color: rgb(59, 114, 215);
+		text-align: center;
+	}
+
+	.logRegisterNavContainer {
+		padding-top: 0.3rem;
+
+		.navLink {
+			color: rgb(20, 132, 0);
+			text-decoration: none;
+			padding-right: 0.3rem;
+
+			&:hover {
+				color: rgba(28, 160, 5, 0.597);
+			}
+		}
+	}
+
+	.userPrivateZoneLink {
+		padding-left: 1rem;
+		color: rgb(20, 132, 0);
+		text-decoration: none;
+		font-size: 1.1rem;
+
+		&:hover {
+			color: rgba(20, 132, 0, 0.54);
+		}
+	}
+
+	.btnLogOut {
+		cursor: pointer;
+		color: rgb(255, 99, 71);
+		padding: 0.2rem 0rem 0rem 1.3rem;
+		background-color: transparent;
+		border: none;
+
+		&:hover {
+			color: rgba(255, 99, 71, 0.602);
+		}
+	}
+	
+}
