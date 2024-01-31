@@ -1,6 +1,6 @@
 import styles from "./Login.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { logInUser } from "../services/huertas_server/loginUser";
+import { logInUser } from "../services/huertas_server/logInUser";
 import { user } from "../data/userData";
 import { UserRoleType, useUserRoleContext } from "../context/UserRoleContext";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,6 @@ function Login() {
 	useEffect(() => {
 
 		if (loginState === "logged") {
-			console.log(loginState);
 			navigate("/");
 		}
 
