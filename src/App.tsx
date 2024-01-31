@@ -12,7 +12,7 @@ export function App() {
 			<Route path="*" element={<WrongPath />} />
 			<Route path="/" element={<Home />} />
 			<Route path="/login" element={<Login />} />
-			<Route path="/register" element={<Register />} />
+			{/* <Route path="/register" element={<Register />} /> */}
 		</Routes>
 	);
 }
