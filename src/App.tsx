@@ -1,11 +1,14 @@
+import {Login} from "./components/Login";
+import "./App.css";
 
-function App() {
+export function App() {
 
-  return (
-    <>
-      <h1>Huertos Demo</h1>
-    </>
-  )
+	return (
+		<>
+			<h1>Huertos Demo</h1>
+			<Login />
+		</>
+	);
 }
 
-export default App
+
