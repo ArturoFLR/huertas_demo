@@ -1,19 +1,21 @@
-import styles from "./Login.module.scss";
+import "./login.css";
 import { useEffect, useRef, useState } from "react";
-import { logInUser } from "../services/huertas_server/logInUser";
-import { user } from "../data/userData";
-import { UserRoleType, useUserRoleContext } from "../context/UserRoleContext";
+import { logInUser } from "../../services/huertas_server/logInUser";
+import { user } from "../../data/userData";
+import { UserRoleType, useUserRoleContext } from "../../context/UserRoleContext";
 import { useNavigate } from "react-router-dom";
 
 
+
 type LoginStateType = "init" | "loading" | "error" | "logged";
+//Tipos de datos aceptados en el LoginState y en userDataResponse -- Necesario por TS
 type UserDataResponseType = {
 	userName: string,
 	userRole: UserRoleType
 }
 
 
-function Login() {
+export function Login() {
 	const { setUserRole } = useUserRoleContext();
 	const [loginState, setLoginState] = useState<LoginStateType>("init");
 
@@ -41,6 +43,7 @@ function Login() {
 	useEffect(() => {
 
 		if (loginState === "logged") {
+			console.log(loginState);
 			navigate("/");
 		}
 
@@ -60,26 +63,20 @@ function Login() {
 	}, [loginState]);
 
 	return (
-		<div className={styles.formMainContainer}>
-			{
-				loginState === "init" || loginState === "error"
-					? (
-						<form name="login" id="login" encType="application/x-www-form-urlencoded" ref={loginForm} className={styles.formLabel}>
-							<label htmlFor="loginEmail" className={styles.labelLabel} >Email</label>
-							<input type="email" id="loginEmail" name="userEmail" required className={styles.inputLabel}></input>
+		<div className="container">
+			<form name="login" id="login" encType="application/x-www-form-urlencoded" ref={loginForm} className="form">
+				<h2 className="form-title">Ingresar</h2>
 
-							<label htmlFor="loginPassword" className={styles.labelLabel}>Contraseña </label>
-							<input type="password" id="loginPassword" name="userPassword" required className={styles.inputLabel}></input>
+				<div className="form-inputs">
+					<label htmlFor="loginEmail">Email</label>
+					<input type="email" id="loginEmail" name="userEmail" required></input>
 
-							<button type="submit" className={styles.btnLogIn} >Logarme</button>
+					<label htmlFor="loginPassword">Contraseña </label>
+					<input type="password" id="loginPassword" name="userPassword" required></input>
+				</div>
 
-							{loginState === "error" && <p className={styles.textError} >Email / contraseña incorrectos</p>}
-						</form>
-					)
-					: <p className={styles.textLoading}>Loading...</p>
-			}
+				<button type="submit" className="sendBtn">Login</button>
+			</form>
 		</div>
 	);
 }
-
-export default Login;

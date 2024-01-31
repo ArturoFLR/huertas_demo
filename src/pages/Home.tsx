@@ -43,8 +43,13 @@ export default function Home() {
 
 	return (
 		<>
-			<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
-			<PublicationsList />
+			<header>
+				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
+			</header>
+
+			<main>
+				<PublicationsList />
+			</main>
 		</>
 	);
 }
