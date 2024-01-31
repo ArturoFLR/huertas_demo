@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+.container {
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    margin: 3rem auto;
+    background: url('./images/huertas.jpg');
+    display: grid;
+    place-content: center;
+    .form {
+        background: #013824;
+        border-radius: 20px;
+        height: 300px;
+        overflow: hidden;
+        .form-title {
+            padding: 0 3rem 1rem;
+            color: #62e12bc3;
+        }
+        .form-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: start;
+            padding: 0 1rem 2rem ;
+            color: #2be18cc3;
+            input {
+                border: none;
+                outline: none;
+                background: transparent;
+                border-bottom: 1px solid #066c217f;
+            }
+        }
+        .sendBtn{
+            padding: .5rem 3rem;
+            margin: 1rem 0;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1rem;
+            background:#1286317f ;
+        }
+    }
+}
