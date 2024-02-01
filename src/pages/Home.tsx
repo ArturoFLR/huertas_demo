@@ -1,3 +1,4 @@
+import styles from "./Home.module.scss";
 import { useEffect } from "react";
 import Header from "../components/header/Header";
 import { checkOpenSession } from "../services/huertas_server/checkOpenSession";
@@ -43,9 +44,9 @@ export default function Home() {
 
 	return (
 		<>
-			<header>
+			<div className={styles.headerCompContainer}>
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
-			</header>
+			</div>
 
 			<main>
 				<PublicationsList />

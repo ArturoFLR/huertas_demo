@@ -1,0 +1,25 @@
+.mainContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to bottom, rgb(124, 170, 124), rgb(205, 225, 205));
+}
+
+.formLabel {
+	width: 450px;
+	height: 600px;
+	background-image: url("@/images/huertas.jpg");
+	border-radius: 15px;
+	overflow: hidden;
+
+	.blurContainer {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		padding: 50px;
+		backdrop-filter: blur(3px) brightness(100%);
+	}
+}

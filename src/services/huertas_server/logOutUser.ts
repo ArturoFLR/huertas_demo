@@ -8,7 +8,7 @@ export async function logOutUser () {
 		
 	} catch (error) {
 		if ( axios.isAxiosError(error)) {
-			throw new Error(error.response!.data);
+			throw new Error(error.message);
 		}
 	}
 }

@@ -2,20 +2,13 @@ import "./login.css";
 import { useEffect, useRef, useState } from "react";
 import { logInUser } from "../../services/huertas_server/logInUser";
 import { user } from "../../data/userData";
-import { UserRoleType, useUserRoleContext } from "../../context/UserRoleContext";
+import { useUserRoleContext } from "../../context/UserRoleContext";
 import { useNavigate } from "react-router-dom";
+import { LoginStateType, UserDataResponseType } from "./formsTypes";
 
 
 
-type LoginStateType = "init" | "loading" | "error" | "logged";
-//Tipos de datos aceptados en el LoginState y en userDataResponse -- Necesario por TS
-type UserDataResponseType = {
-	userName: string,
-	userRole: UserRoleType
-}
-
-
-export function Login() {
+export default function Login() {
 	const { setUserRole } = useUserRoleContext();
 	const [loginState, setLoginState] = useState<LoginStateType>("init");
 
@@ -64,7 +57,7 @@ export function Login() {
 
 	return (
 		<div className="container">
-			<form name="login" id="login" encType="application/x-www-form-urlencoded" ref={loginForm} className="form">
+			<form name="login" id="login" encType="multipart/form-data" ref={loginForm} className="form">
 				<h2 className="form-title">Ingresar</h2>
 
 				<div className="form-inputs">

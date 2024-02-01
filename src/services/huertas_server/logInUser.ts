@@ -10,7 +10,7 @@ export async function logInUser (formData: FormData) {
 		return userData;
 	} catch (error) {
 		if ( axios.isAxiosError(error)) {
-			throw new Error(error.response!.data);
+			throw new Error(error.message);
 		}
 	}
 }
