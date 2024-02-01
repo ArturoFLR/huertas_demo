@@ -9,17 +9,70 @@
 
 .formLabel {
 	width: 450px;
-	height: 600px;
+	height: 700px;
+	padding: 50px;
 	background-image: url("@/images/huertas.jpg");
 	border-radius: 15px;
 	overflow: hidden;
 
-	.blurContainer {
+	.formImageAndInputsContainer {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		width: 100%;
 		height: 100%;
-		padding: 50px;
-		backdrop-filter: blur(3px) brightness(100%);
+		border-radius: 15px;
+		overflow: hidden;
+		background-color: white;
+
+		img {
+			width: 100%;
+		}
+		
+		.formTitle {
+			color: #62e12bc3;
+			font-size: 2rem;
+			font-weight: 800;
+			padding: 1rem 0rem 0rem 0rem;
+		}
+
+		.btnSubmit {
+			padding: .3rem 3rem;
+            margin: 0rem 0;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 1rem;
+            background:#1286317f ;
+		}
+	}
+}
+
+.formFieldsContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 1rem 2rem 1rem 2rem;
+
+	.fieldContainer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		margin-top: 0.3rem;
+	}
+
+	label {
+		flex-grow: 0;
+		font-weight: 600;
+	}
+
+	input {
+		flex-grow: 1;
+		margin-left: 2rem;
+		text-align: center;
+		border: none;
+		border-bottom: 2px solid rgb(182, 182, 182);
 	}
 }

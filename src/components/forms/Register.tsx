@@ -108,62 +108,86 @@ export default function Register() {
 						<Formik initialValues={initialValues} validationSchema={registerSchema} onSubmit={submitForm}>
 							<Form name="registerForm" action="" encType="multipart/form-data" className={styles.formLabel}>
 
-								<div className={styles.blurContainer}>
+								<div className={styles.formImageAndInputsContainer}>
 									<img src="./images/huertas-login.jpg" alt="ecohuertas" className={styles.formMainImage} />
 
 									<h2 className={styles.formTitle}>Regístrate</h2>
 
-									<div className={styles.formInputs}>
+									<div className={styles.formFieldsContainer}>
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userName">Nombre: </label>
+											<Field type="text" id="userName" name="userName" />
+										</div>
 
-										<label htmlFor="userName">Nombre: </label>
-										<Field type="text" id="userName" name="userName" />
 										<ErrorMessage name="userName" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userLastName">Apellidos: </label>
-										<Field type="text" id="userLastName" name="userLastName" />
+
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userLastName">Apellidos: </label>
+											<Field type="text" id="userLastName" name="userLastName" />
+										</div>
+
 										<ErrorMessage name="userLastName" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userEmail">Email: </label>
-										<Field type="email" id="userEmail" name="userEmail" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userEmail">Email: </label>
+											<Field type="email" id="userEmail" name="userEmail" />
+										</div>
+
 										<ErrorMessage name="userEmail" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userAddressStreet">Calle / Vía: </label>
-										<Field type="text" id="userAddressStreet" name="userAddressStreet" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userAddressStreet">Calle / Vía: </label>
+											<Field type="text" id="userAddressStreet" name="userAddressStreet" />
+										</div>
+
 										<ErrorMessage name="userAddressStreet" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userAddressCity">Localidad: </label>
-										<Field type="text" id="userAddressCity" name="userAddressCity" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userAddressCity">Localidad: </label>
+											<Field type="text" id="userAddressCity" name="userAddressCity" />
+										</div>
+
 										<ErrorMessage name="userAddressCity" >
 											{errorMsg => <p className={styles.errorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userAddressCountry">País: </label>
-										<Field type="text" id="userAddressCountry" name="userAddressCountry" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userAddressCountry">País: </label>
+											<Field type="text" id="userAddressCountry" name="userAddressCountry" />
+										</div>
+
 										<ErrorMessage name="userAddressCountry" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userPassword">Contraseña: </label>
-										<Field type="password" id="userPassword" name="userPassword" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userPassword">Contraseña: </label>
+											<Field type="password" id="userPassword" name="userPassword" />
+										</div>
+
 										<ErrorMessage name="userPassword" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
 
-										<label htmlFor="userPasswordConfirm">Confirma Contraseña: </label>
-										<Field type="password" id="userPasswordConfirm" name="userPasswordConfirm" />
+										<div className={styles.fieldContainer}>
+											<label htmlFor="userPasswordConfirm">Confirmar: </label>
+											<Field type="password" id="userPasswordConfirm" name="userPasswordConfirm" />
+										</div>
+
 										<ErrorMessage name="userPasswordConfirm" >
 											{errorMsg => <p className={styles.validationErrorMsg}>{errorMsg}</p>}
 										</ErrorMessage>
-
 									</div>
+
 									<button type="submit" className={styles.btnSubmit}>Enviar</button>
 
 								</div>
