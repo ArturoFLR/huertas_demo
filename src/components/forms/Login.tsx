@@ -36,7 +36,6 @@ export default function Login() {
 	useEffect(() => {
 
 		if (loginState === "logged") {
-			console.log(loginState);
 			navigate("/");
 		}
 
@@ -67,6 +66,16 @@ export default function Login() {
 					<label htmlFor="loginPassword">Contraseña </label>
 					<input type="password" id="loginPassword" name="userPassword" required></input>
 				</div>
+
+				{
+					loginState === "error" && <p>Email / Clave Incorrectos</p>
+				}
+
+				{loginState === "loading" && (
+					<div>
+						<img alt="Cargando..." src="icons/loading.gif" />
+					</div>
+				)}
 
 				<button type="submit" className="sendBtn">Login</button>
 			</form>

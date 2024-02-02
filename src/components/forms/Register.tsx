@@ -34,9 +34,9 @@ export default function Register() {
 	};
 
 	const registerSchema = Yup.object({
-		userName: Yup.string().required("Debes completar este campo"),
-		userLastName: Yup.string().required("Debes completar este campo"),
-		userEmail: Yup.string().email("El formato no coincide con un email").required("Debes completar este campo"),
+		userName: Yup.string().required("Debes completar este campo").max(30, "Máximo 30 caracteres"),
+		userLastName: Yup.string().required("Debes completar este campo").max(30, "Máximo 30 caracteres"),
+		userEmail: Yup.string().required("Debes completar este campo").email("El formato no coincide con un email").max(30, "Máximo 30 caracteres"),
 		userAddressStreet: Yup.string().required("Debes completar este campo"),
 		userAddressCity: Yup.string().required("Debes completar este campo"),
 		userAddressCountry: Yup.string().required("Debes completar este campo"),
@@ -44,7 +44,7 @@ export default function Register() {
 		userPassword: Yup.string()
 			.required("Debes completar este campo")
 			.min(8, "Al menos 8 caracteres")
-			.max(12, "Máximo 12 caracteres")
+			.max(15, "Máximo 12 caracteres")
 			.matches(lowerCaseRegex, "Debe tener al menos una letra minúscula")
 			.matches(upperCaseRegex, "Debe tener al menos una letra mayúscula")
 			.matches(numberRegex, "Debe tener al menos un número")

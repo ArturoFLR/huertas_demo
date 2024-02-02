@@ -2,3 +2,41 @@
 	width: 100%;
 	height: 11vh;
 }
+
+main {
+	width: 100%;
+	min-height: 89vh;
+	padding: 10vh 10vw;
+}
+
+.pubListLoadingContainer, .pubListErrorContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50vh;
+
+	.loadingIcon {
+		width: 80px;
+	}
+
+	.pubListErrorFirstParagraph {
+		font-size: 1.3rem;
+		font-weight: 800;
+		color: rgb(169, 165, 165);
+	}
+
+	.pubListErrorSecondParagraph {
+		margin-top: 1.5rem;
+		font-weight: 600;
+		color: rgb(97, 135, 237);
+	}
+}
+
+.pubListCompContainer {
+	display: flex;
+	width: 100%;
+	height: 70vh;
+}
+
