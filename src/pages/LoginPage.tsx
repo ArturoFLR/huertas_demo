@@ -12,7 +12,7 @@ function LoginPage() {
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 
-			<main className={styles.loginCompContainer}>
+			<main className="flex items-center justify-center overflow-hidden">
 				<Login />
 			</main>
 		</>

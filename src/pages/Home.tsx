@@ -48,7 +48,7 @@ export default function Home() {
 
 	return (
 		<>
-			<div className={styles.headerCompContainer}>
+			<div className="bg-yellow-200">
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 
