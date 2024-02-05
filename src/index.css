@@ -15,3 +15,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+input {
+	background: transparent;
+	outline: none;
+	border-bottom: 1px solid #7edb15d6;
+	box-shadow: 0px 5px 8px #77df0f43;
+}

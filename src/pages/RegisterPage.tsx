@@ -7,15 +7,15 @@ function RegisterPage() {
 	const userBoxIcon = "icons/user.png";
 
 	return (
-		<>
+		<div className="overflow-hidden">
 			<div className={styles.headerCompContainer}>
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 
-			<main className={styles.registerCompContainer}>
+			<main className="w-[90%] h-[100%] flex justify-center items-center overflow-hidden">
 				<Register />
 			</main>
-		</>
+		</div>
 	);
 }
 
