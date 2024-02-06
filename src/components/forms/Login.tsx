@@ -57,7 +57,7 @@ export default function Login() {
 	return (
 		<div className="w-[300px] h-[450px] bg-huerta flex items-center justify-center rounded-2xl text-[#eaefd4f2]">
 			<form name="login" id="login" encType="multipart/form-data" ref={loginForm} className="w-[250px] h-[330px] border-solid text-center bg-[#86b155d6] p-4 rounded-2xl">
-				<div className="flex justify-center items-center gap-4 bg-[#6ea82ce9] rounded-2xl">
+				<div className="flex justify-center items-center gap-4 rounded-2xl text-2xl">
 					<img src="images/huertas-logo.png" alt="logo"
 						className="w-[35px] h-[35px] rounded-full border-solid border-2 border-[#78b632] ml-[-30px]" />
 					<h2 className="">Ingresar</h2>
@@ -83,7 +83,7 @@ export default function Login() {
 					</div>
 				)}
 
-				<button type="submit" className="bg-[#62a614f5] p-[.5rem_2rem] rounded-2xl m-[1.5rem_0_0]">Login</button>
+				<button type="submit" className="bg-[#62a614f5] border-[#88ff00f5] p-[.5rem_2rem] rounded-2xl m-[1.5rem_0_0] hover:bg-[transparent]  hover:border hover:text-[#bfff00c6]">Login</button>
 			</form>
 		</div>
 	);
