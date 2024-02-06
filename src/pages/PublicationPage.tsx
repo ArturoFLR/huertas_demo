@@ -1,10 +1,12 @@
-import Login from "../components/forms/Login";
+import { useParams } from "react-router-dom";
 import Header from "../components/header/Header";
-import styles from "./LoginPage.module.scss";
+import styles from "./PublicationPage.module.scss";
 
-function LoginPage() {
+function PublicationPage() {
 	const imageSRC = "images/huertas-logo.png";
 	const userBoxIcon = "icons/user.png";
+
+	const { id } = useParams();
 
 	return (
 		<>
@@ -12,11 +14,11 @@ function LoginPage() {
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 
-			<main className="flex items-center justify-center overflow-hidden">
-				<Login />
+			<main>
+				<p>Estás viendo la publicación: {id}</p>
 			</main>
 		</>
 	);
 }
 
-export default LoginPage;
+export default PublicationPage;

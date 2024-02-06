@@ -7,20 +7,33 @@ import { UserRoleType, useUserRoleContext } from "../context/UserRoleContext";
 import PublicationsList from "../components/publicationsList/PublicationsList";
 import { getBestPublications } from "../services/huertas_server/getBestPublications";
 import { PublicationPreviewType } from "../components/publicationsList/publicationsListTypes";
+import ChartBar from "../components/charts/ChartBar";
+import { BarChartDataType, LineChartDataType, MapChartDataType } from "../components/charts/ChartBarTypes";
+import ChartLine from "../components/charts/ChartLine";
+import { getChartsData } from "../services/huertas_server/getChartsData";
+import ChartMap from "../components/charts/ChartMap";
 
-type PublicationStateType = "loading" | "loaded" | "error";
+
+type LoadingStateType = "loading" | "loaded" | "error";
 
 type UserDataType = {
 	userName: string,
 	userRole: UserRoleType
 }
 
+type ChartsDataType = {
+	barChartData: BarChartDataType,
+	lineChartData: LineChartDataType,
+	mapChartData: MapChartDataType,
+}
 
 export default function Home() {
 	const { setUserRole } = useUserRoleContext();
-	const [publicationsState, setPublicationsState] = useState<PublicationStateType>("loading");
+	const [publicationsState, setPublicationsState] = useState<LoadingStateType>("loading");
+	const [dashboardState, setDashboardState] = useState<LoadingStateType>("loading");
 
 	const bestPublicationsArray = useRef<PublicationPreviewType[]>([]);
+	const chartsData = useRef<ChartsDataType>();
 
 	const imageSRC = "images/huertas-logo.png";
 	const userBoxIcon = "icons/user.png";
@@ -44,11 +57,20 @@ export default function Home() {
 			.catch(() => {
 				setPublicationsState("error");
 			});
+
+		getChartsData()
+			.then((chartsDataResponse: ChartsDataType) => {
+				chartsData.current = chartsDataResponse;
+				setDashboardState("loaded");
+			})
+			.catch(() => {
+				setDashboardState("error");
+			});
 	}, []);
 
 	return (
 		<>
-			<div className="bg-yellow-200">
+			<div className={`${styles.headerCompContainer} bg-yellow-200`}>
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 
@@ -77,6 +99,44 @@ export default function Home() {
 						</div>
 					)
 				}
+
+				<div className={styles.dashboardContainer}>
+					{
+						dashboardState === "loading" && (
+							<div className={styles.dashboardLoadingContainer}>
+								<img alt="Cargando..." src="icons/loading.gif" className={styles.loadingIcon} />
+							</div>
+						)
+					}
+
+					{
+						dashboardState === "error" && (
+							<div className={styles.dashboardErrorContainer}>
+								<p className={styles.dashboardErrorFirstParagraph}>No se han podido cargar las publicaciones.</p>
+								<p className={styles.dashboardErrorSecondParagraph}>Por favor, compruebe su conexión y refresque la página.</p>
+							</div>
+						)
+					}
+
+					{
+						dashboardState === "loaded" && (
+							<>
+								<div className={styles.barChartDataCompContainer}>
+									<ChartBar barChartData={chartsData.current?.barChartData!} />
+								</div>
+
+								<div className={styles.lineChartDataCompContainer}>
+									<ChartLine lineChartData={chartsData.current?.lineChartData!} />
+								</div>
+
+								<div className={styles.mapChartDataCompContainer}>
+									<ChartMap mapChartData={chartsData.current?.mapChartData!} />
+								</div>
+							</>
+						)
+					}
+				</div>
+
 			</main>
 		</>
 	);

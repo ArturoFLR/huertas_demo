@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./PublicationCard.module.scss";
+import { Link } from "react-router-dom";
 
 type PublicationCardProps = {
 	id: number,
@@ -11,31 +12,18 @@ type PublicationCardProps = {
 
 function PublicationCard({ id, mainImage, title, author, mainText }: PublicationCardProps) {
 	const [maxChars, setMaxChars] = useState(0);
+	const cardContainer = useRef<HTMLDivElement>(null);
+
+	const linkUrl = `/publications/${id}`;
+
 
 	function calcMaxChars() {
-		const windowWidth = window.innerWidth;
-
-		switch (true) {
-			case windowWidth > 1200:
-				if (maxChars !== 200) setMaxChars(200);
-				break;
-
-			case windowWidth > 1000:
-				if (maxChars !== 100) setMaxChars(100);
-				break;
-
-			case windowWidth > 850:
-				if (maxChars !== 70) setMaxChars(70);
-				break;
-
-			default:
-				if (maxChars !== 50) setMaxChars(50);
-				break;
-		}
+		const cardWidth = cardContainer.current?.clientWidth;
+		const newMaxCharsValue = (cardWidth as number * 65) / 190;
+		setMaxChars(newMaxCharsValue);
 	}
 
 	function generatePreviewText() {
-		calcMaxChars();
 		const fixedText = mainText.substring(0, maxChars);					// The minimun number of characters we´re going to show
 		let finalPreviewText = fixedText;
 
@@ -50,26 +38,30 @@ function PublicationCard({ id, mainImage, title, author, mainText }: Publication
 	}
 
 	useEffect(() => {
-		window.addEventListener("resize", () => {
-			calcMaxChars();
-		});
+		calcMaxChars();
+
+		window.addEventListener("resize", calcMaxChars);
+
+		return () => {
+			removeEventListener("resize", calcMaxChars);
+		};
 	});
 
 	return (
-		<div className={styles.publiCardMainContainer} key={id} >
+		<Link to={linkUrl}>
+			<div className={styles.publiCardMainContainer} ref={cardContainer} key={id} >
 
-			<div className={styles.publiCardImageContainer}>
-				<img alt="Publication Main Image" src={mainImage} className={styles.publiCardMainImage} />
+				<div className={styles.publiCardImageContainer}>
+					<img alt="Publication Main Image" src={mainImage} className={styles.publiCardMainImage} />
+				</div>
+
+				<div className={styles.publiCardContent}>
+					<h3 className={styles.publiCardTitle}>{title}</h3>
+					<p className={styles.publiCardAuthor}>{author}</p>
+					<p className={styles.publiCardMainText}>{generatePreviewText()} <span> (...)</span></p>
+				</div>
 			</div>
-
-			<div className={styles.publiCardContent}>
-				<h3 className={styles.publiCardTitle}>{title}</h3>
-				<p className={styles.publiCardAuthor}>{author}</p>
-				<p className={styles.publiCardMainText}>{generatePreviewText()} <span> (...)</span></p>
-			</div>
-
-
-		</div>
+		</Link>
 	);
 }
 

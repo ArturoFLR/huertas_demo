@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "huerta": "url('./public/images/huertas.jpg')",
+        "huerta": "url('@/images/huertas.jpg')",
       }
     },
   },

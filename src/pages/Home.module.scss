@@ -4,6 +4,10 @@
 }
 
 main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	min-height: 89vh;
 	padding: 10vh 10vw;
@@ -18,17 +22,17 @@ main {
 	height: 50vh;
 
 	.loadingIcon {
-		width: 80px;
+		width: 60px;
 	}
 
 	.pubListErrorFirstParagraph {
-		font-size: 1.3rem;
+		font-size: 1rem;
 		font-weight: 800;
 		color: rgb(169, 165, 165);
 	}
 
 	.pubListErrorSecondParagraph {
-		margin-top: 1.5rem;
+		margin-top: 1.3rem;
 		font-weight: 600;
 		color: rgb(97, 135, 237);
 	}
@@ -40,3 +44,58 @@ main {
 	height: 70vh;
 }
 
+.dashboardContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 1rem;
+	row-gap: 1rem;
+	margin-top: 5rem;
+	width: 90%;
+	height: 60vh;
+
+	.barChartDataCompContainer {
+		width: 40%;
+		height: 45%;
+		background-color: rgb(219, 247, 237);
+	}
+
+	.lineChartDataCompContainer {
+		width: 40%;
+		height: 45%;
+		background-color: rgb(219, 247, 237);
+	}
+
+	.mapChartDataCompContainer {
+		width: 81.3%;
+		height: 55%;
+		background-color: rgb(219, 247, 237);
+	}
+
+	.dashboardLoadingContainer, .dashboardErrorContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+
+		.loadingIcon {
+			width: 60px;
+		}
+	}
+
+	.dashboardErrorContainer {
+
+		.dashboardErrorFirstParagraph {
+			font-size: 1rem;
+			font-weight: 800;
+			color: rgb(169, 165, 165);
+		}
+
+		.dashboardErrorSecondParagraph {
+			margin-top: 1.3rem;
+			font-weight: 600;
+			color: rgb(97, 135, 237);
+		}
+	}
+}

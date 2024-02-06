@@ -8,7 +8,7 @@ function RegisterPage() {
 
 	return (
 		<>
-			<div className={styles.headerCompContainer}>
+			<div className={`${styles.headerCompContainer} bg-yellow-200`}>
 				<Header imageSRC={imageSRC} userBoxIcon={userBoxIcon} />
 			</div>
 

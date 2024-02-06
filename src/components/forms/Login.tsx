@@ -58,7 +58,7 @@ export default function Login() {
 		<div className="w-[300px] h-[450px] bg-huerta flex items-center justify-center rounded-2xl text-[#eaefd4f2]">
 			<form name="login" id="login" encType="multipart/form-data" ref={loginForm} className="w-[250px] h-[330px] border-solid text-center bg-[#86b155d6] p-4 rounded-2xl">
 				<div className="flex justify-center items-center gap-4 bg-[#6ea82ce9] rounded-2xl">
-					<img src="./public/images/huertas-logo.png" alt="logo"
+					<img src="images/huertas-logo.png" alt="logo"
 						className="w-[35px] h-[35px] rounded-full border-solid border-2 border-[#78b632] ml-[-30px]" />
 					<h2 className="">Ingresar</h2>
 				</div>
@@ -79,7 +79,7 @@ export default function Login() {
 
 				{loginState === "loading" && (
 					<div className="flex items-center justify-center translate-y-[-10px]">
-						<img alt="Cargando..." src="icons/loading.gif" className="w-[45px] h-[45px] rounded-full"/>
+						<img alt="Cargando..." src="icons/loading.gif" className="w-[45px] h-[45px] rounded-full" />
 					</div>
 				)}
 

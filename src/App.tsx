@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import WrongPath from "./pages/WrongPath";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import PublicationPage from "./pages/PublicationPage";
+import PublicationsPage from "./pages/PublicationsPage";
 
 
 export function App() {
@@ -13,6 +15,8 @@ export function App() {
 			<Route path="/" element={<Home />} />
 			<Route path="/login" element={<LoginPage />} />
 			<Route path="/register" element={<RegisterPage />} />
+			<Route path="/publications" element={<PublicationsPage />} />
+			<Route path="/publications/:id" element={<PublicationPage />} />
 		</Routes>
 	);
 }

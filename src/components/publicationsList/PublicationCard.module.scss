@@ -6,6 +6,7 @@
 	border: 1px solid black;
 	border-radius: 10px;
 	overflow: hidden;
+	cursor: pointer;
 
 	.publiCardImageContainer {
 		width: 100%;
@@ -38,9 +39,12 @@
 			margin-top: 0.8rem;
 
 			span {
+				position: relative;
+				left: -20px;
+				padding-left: 20px;
 				font-weight: 800;
 				letter-spacing: 3px;
-				color: black;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), white 40%);
 			}
 		}
 	}
