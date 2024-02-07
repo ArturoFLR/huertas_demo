@@ -39,7 +39,9 @@ export default function Home() {
 	const userBoxIcon = "icons/user.png";
 
 	useEffect(() => {
-		checkOpenSession()
+		const axiosController = new AbortController();
+
+		checkOpenSession(axiosController)
 			.then((userData: UserDataType) => {
 				user.name = userData.userName;
 				setUserRole(userData.userRole);
@@ -49,7 +51,7 @@ export default function Home() {
 				setUserRole("visitor");
 			});
 
-		getBestPublications()
+		getBestPublications(axiosController)
 			.then((bestPublicationsList: PublicationPreviewType[]) => {
 				bestPublicationsArray.current = bestPublicationsList;
 				setPublicationsState("loaded");
@@ -58,7 +60,7 @@ export default function Home() {
 				setPublicationsState("error");
 			});
 
-		getChartsData()
+		getChartsData(axiosController)
 			.then((chartsDataResponse: ChartsDataType) => {
 				chartsData.current = chartsDataResponse;
 				setDashboardState("loaded");
@@ -66,6 +68,10 @@ export default function Home() {
 			.catch(() => {
 				setDashboardState("error");
 			});
+
+		return () => {
+			axiosController.abort();
+		};
 	}, []);
 
 	return (
@@ -112,7 +118,7 @@ export default function Home() {
 					{
 						dashboardState === "error" && (
 							<div className={styles.dashboardErrorContainer}>
-								<p className={styles.dashboardErrorFirstParagraph}>No se han podido cargar las publicaciones.</p>
+								<p className={styles.dashboardErrorFirstParagraph}>No se ha podido cargar el dashboard.</p>
 								<p className={styles.dashboardErrorSecondParagraph}>Por favor, compruebe su conexión y refresque la página.</p>
 							</div>
 						)

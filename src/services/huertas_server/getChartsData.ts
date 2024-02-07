@@ -1,10 +1,12 @@
 import axios from "axios";
 import { axiosConfig } from "../../lib/axios/axios.config";
 
-export async function getChartsData () {
+export async function getChartsData ( axiosControler: AbortController ) {
 
 	try{
-		const response = await axiosConfig.get("/charts/all");
+		const response = await axiosConfig.get("/charts/all", {
+			signal: axiosControler.signal
+		});
 		const userData = response.data;
 
 		return userData;

@@ -13,6 +13,7 @@ export default function Login() {
 	const [loginState, setLoginState] = useState<LoginStateType>("init");
 
 	const loginForm = useRef<HTMLFormElement>(null);
+
 	const navigate = useNavigate();
 
 
@@ -50,6 +51,7 @@ export default function Login() {
 			if (loginForm.current) {
 				(loginForm.current as HTMLFormElement).removeEventListener("submit", sendForm);
 			}
+
 		};
 
 	}, [loginState]);

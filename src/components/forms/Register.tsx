@@ -97,7 +97,7 @@ export default function Register() {
 		return () => {
 			clearTimeout(loggedTimeout);
 		};
-	});
+	}, []);
 
 	return (
 		<>
@@ -118,7 +118,7 @@ export default function Register() {
 									<div className="flex flex-col gap-1 items-start text-base">
 										<div className="">
 											<label htmlFor="userName">Nombre: </label>
-											<Field type="text" id="userName" name="userName" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="text" id="userName" name="userName" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userName" >
@@ -128,7 +128,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userLastName">Apellidos: </label>
-											<Field type="text" id="userLastName" name="userLastName" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="text" id="userLastName" name="userLastName" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userLastName" >
@@ -137,7 +137,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userEmail">Email: </label>
-											<Field type="email" id="userEmail" name="userEmail" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="email" id="userEmail" name="userEmail" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userEmail" >
@@ -146,7 +146,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userAddressStreet">Calle / Vía: </label>
-											<Field type="text" id="userAddressStreet" name="userAddressStreet" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="text" id="userAddressStreet" name="userAddressStreet" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userAddressStreet" >
@@ -155,7 +155,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userAddressCity">Localidad: </label>
-											<Field type="text" id="userAddressCity" name="userAddressCity" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="text" id="userAddressCity" name="userAddressCity" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userAddressCity" >
@@ -164,7 +164,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userAddressCountry">País: </label>
-											<Field type="text" id="userAddressCountry" name="userAddressCountry" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="text" id="userAddressCountry" name="userAddressCountry" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userAddressCountry" >
@@ -173,7 +173,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userPassword">Contraseña: </label>
-											<Field type="password" id="userPassword" name="userPassword" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="password" id="userPassword" name="userPassword" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userPassword" >
@@ -182,7 +182,7 @@ export default function Register() {
 
 										<div className="">
 											<label htmlFor="userPasswordConfirm">Confirmar: </label>
-											<Field type="password" id="userPasswordConfirm" name="userPasswordConfirm" placeholder=". . ." className="placeholder-[#b3e59ec3]"/>
+											<Field type="password" id="userPasswordConfirm" name="userPasswordConfirm" placeholder=". . ." className="placeholder-[#b3e59ec3]" />
 										</div>
 
 										<ErrorMessage name="userPasswordConfirm" >
