@@ -13,6 +13,7 @@ export default function Login() {
 	const [loginState, setLoginState] = useState<LoginStateType>("init");
 
 	const loginForm = useRef<HTMLFormElement>(null);
+	const axiosController = useRef<AbortController>();
 
 	const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ export default function Login() {
 		setLoginState("loading");
 
 		const formData = new FormData((loginForm.current as HTMLFormElement));
-		logInUser(formData)
+		logInUser(formData, axiosController.current!)
 			.then((UserDataResponse: UserDataResponseType) => {
 				user.name = UserDataResponse.userName;
 				setUserRole(UserDataResponse.userRole);
@@ -55,6 +56,14 @@ export default function Login() {
 		};
 
 	}, [loginState]);
+
+	useEffect(() => {
+		axiosController.current = new AbortController();
+
+		return () => {
+			if (axiosController.current) axiosController.current.abort();
+		};
+	}, []);
 
 	return (
 		<div className="w-[300px] h-[450px] bg-huerta flex items-center justify-center rounded-2xl text-[#eaefd4f2]">

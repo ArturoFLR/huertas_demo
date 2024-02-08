@@ -15,7 +15,10 @@ export default function Register() {
 	const [registerState, setRegisterState] = useState<RegisterStateType>("init");
 	const navigate = useNavigate();
 
+	console.log(registerState);
+
 	const errorMessage = useRef("");
+	const axiosController = useRef<AbortController>();
 
 	const lowerCaseRegex = /[a-z]/g;
 	const upperCaseRegex = /[A-Z]/g;
@@ -68,7 +71,7 @@ export default function Register() {
 
 		setRegisterState("loading");
 
-		registerUser(formData)
+		registerUser(formData, axiosController.current!)
 			.then((UserDataResponse: UserDataResponseType) => {
 				user.name = UserDataResponse.userName;
 				setUserRole(UserDataResponse.userRole);
@@ -96,6 +99,14 @@ export default function Register() {
 
 		return () => {
 			clearTimeout(loggedTimeout);
+		};
+	}, [registerState]);
+
+	useEffect(() => {
+		axiosController.current = new AbortController();
+
+		return () => {
+			axiosController.current?.abort();
 		};
 	}, []);
 

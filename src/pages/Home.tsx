@@ -34,14 +34,15 @@ export default function Home() {
 
 	const bestPublicationsArray = useRef<PublicationPreviewType[]>([]);
 	const chartsData = useRef<ChartsDataType>();
+	const axiosController = useRef<AbortController>();
 
 	const imageSRC = "images/huertas-logo.png";
 	const userBoxIcon = "icons/user.png";
 
 	useEffect(() => {
-		const axiosController = new AbortController();
+		axiosController.current = new AbortController();
 
-		checkOpenSession(axiosController)
+		checkOpenSession(axiosController.current)
 			.then((userData: UserDataType) => {
 				user.name = userData.userName;
 				setUserRole(userData.userRole);
@@ -51,7 +52,7 @@ export default function Home() {
 				setUserRole("visitor");
 			});
 
-		getBestPublications(axiosController)
+		getBestPublications(axiosController.current)
 			.then((bestPublicationsList: PublicationPreviewType[]) => {
 				bestPublicationsArray.current = bestPublicationsList;
 				setPublicationsState("loaded");
@@ -60,7 +61,7 @@ export default function Home() {
 				setPublicationsState("error");
 			});
 
-		getChartsData(axiosController)
+		getChartsData(axiosController.current)
 			.then((chartsDataResponse: ChartsDataType) => {
 				chartsData.current = chartsDataResponse;
 				setDashboardState("loaded");
@@ -70,7 +71,7 @@ export default function Home() {
 			});
 
 		return () => {
-			axiosController.abort();
+			axiosController.current?.abort();
 		};
 	}, []);
 

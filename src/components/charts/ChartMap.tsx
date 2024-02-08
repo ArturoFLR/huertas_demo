@@ -2,6 +2,7 @@ import { ResponsiveChoropleth } from "@nivo/geo";
 import { mapChartMapCoordinates } from "../../data/mapChartMapCoordinates";
 import { MapChartDataType } from "./ChartBarTypes";
 
+
 type ChartMapType = {
 	mapChartData: MapChartDataType
 }
@@ -27,6 +28,7 @@ function ChartMap({ mapChartData }: ChartMapType) {
 				graticuleLineColor="#dddddd"
 				borderWidth={1}
 				borderColor="#152538"
+				// @ts-expect-error  "the next line has a typescript error but is caused by the nivo lib (it has no types for 'defs'"
 				defs={[
 					{
 						id: "dots",
